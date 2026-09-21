@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>George Royal Imanuel Siwalette — Data Analyst &amp; AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F6F3;
+    --ink: #16191C;
+    --ink-soft: #5B6169;
+    --line: #DDDAD3;
+    --accent: #145C4B;
+    --accent-warm: #C97A2B;
+    --paper-raise: #FFFFFF;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121514;
+      --ink: #ECEBE7;
+      --ink-soft: #9AA09A;
+      --line: #2A2E2C;
+      --accent: #56C9A6;
+      --accent-warm: #E3A25C;
+      --paper-raise: #191D1B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121514;
+    --ink: #ECEBE7;
+    --ink-soft: #9AA09A;
+    --line: #2A2E2C;
+    --accent: #56C9A6;
+    --accent-warm: #E3A25C;
+    --paper-raise: #191D1B;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: currentColor; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.hero {
+    padding: 96px 0 64px;
+  }
+  .kicker {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.12;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 30em;
+    margin: 0 0 40px;
+  }
+
+  .spark {
+    margin: 8px 0 4px;
+  }
+  .spark svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .spark-path {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 420;
+    stroke-dashoffset: 420;
+    animation: draw 1.4s ease-out 0.2s forwards;
+  }
+  .spark-dot {
+    fill: var(--accent-warm);
+    opacity: 0;
+    animation: appear 0.4s ease-out 1.5s forwards;
+  }
+  .spark-label {
+    font-size: 13px;
+    fill: var(--ink-soft);
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .spark-path { animation: none; stroke-dashoffset: 0; }
+    .spark-dot { animation: none; opacity: 1; }
+  }
+  .spark-caption {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 10px 0 0;
+  }
+
+  section {
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+  }
+  section h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 28px;
+    letter-spacing: -0.005em;
+  }
+
+  .about p { color: var(--ink-soft); max-width: 34em; }
+  .about p + p { margin-top: 16px; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .skills-grid h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  .skills-grid ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--ink-soft);
+  }
+  .skills-grid li {
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px;
+  }
+  .skills-grid li:first-child { border-top: none; }
+  @media (max-width: 560px) {
+    .skills-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .project {
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project:first-child { border-top: none; padding-top: 0; }
+  .project h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+  .project .meta {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin: 0 0 14px;
+  }
+  .project p {
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+    max-width: 36em;
+  }
+  .project .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 14px;
+  }
+  .project .tags span {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 3px 9px;
+  }
+  .project .link { font-size: 15px; font-weight: 500; }
+
+  .contact p {
+    color: var(--ink-soft);
+    max-width: 30em;
+    margin: 0 0 24px;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .contact-links a {
+    font-size: 16.5px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink);
+  }
+  .contact-links a:first-child { border-top: none; }
+  .contact-links a span.arrow-hint { color: var(--ink-soft); font-weight: 400; }
+  .contact-links a:hover { border-bottom: none; }
+  .contact-links a:hover span:first-of-type { color: var(--accent); }
+
+  footer {
+    padding: 32px 0 56px;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">George Royal Imanuel Siwalette</p>
+    <h1>Data analyst by trade, AI engineer in progress.</h1>
+    <p class="tagline">I clean up messy data, automate the tedious parts of the pipeline, and — lately — teach models to tell a cat from a dog. I like problems where the data is messier than the tutorial promised.</p>
+
+    <div class="spark">
+      <svg viewBox="0 0 420 130" preserveAspectRatio="none" role="img" aria-label="Grafik validation accuracy naik dari 83 persen ke 88 persen setelah perbaikan model">
+        <path class="spark-path" d="M0,95 C40,90 60,78 90,74 C120,70 140,80 170,76 C200,72 220,50 250,44 C280,38 300,52 330,34 C360,16 380,20 410,10" />
+        <circle class="spark-dot" cx="410" cy="10" r="4.5" />
+        <text class="spark-label" x="330" y="70">first model — 83% val</text>
+        <text class="spark-label" x="330" y="26" fill="var(--accent-warm)">after fixing overfit — 88%</text>
+      </svg>
+    </div>
+    <p class="spark-caption">Validation accuracy on a cat/dog image classifier, before and after fixing overfitting.</p>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>My day-to-day work is data: syncing and reconciling order and return data across several e-commerce platforms, catching the inconsistencies before they become someone else's problem, and keeping the numbers trustworthy.</p>
+    <p>On the side, I'm building toward AI engineering — starting from the ground up with computer vision. My first real project taught me more about overfitting, corrupt files, and reading error messages than any tutorial did.</p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div>
+        <h3>Data analysis</h3>
+        <ul>
+          <li>SQL &amp; spreadsheet reporting</li>
+          <li>Python (Pandas) for cleaning &amp; automation</li>
+          <li>Multi-platform data synchronization</li>
+          <li>Returns &amp; transaction tracking</li>
+        </ul>
+      </div>
+      <div>
+        <h3>AI &amp; machine learning</h3>
+        <ul>
+          <li>Python, TensorFlow / Keras</li>
+          <li>Convolutional neural networks</li>
+          <li>Debugging overfitting &amp; data issues</li>
+          <li>Computer vision fundamentals</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Cat vs. dog image classifier</h3>
+      <p class="meta">Personal project — computer vision</p>
+      <p>Trained a CNN on the classic Kaggle cats-and-dogs dataset. The dataset itself turned out to be part of the lesson: a handful of corrupt JPEGs crashed training partway through, which meant writing a cleaning step before the model would even run. The first working version scored 99% on training data but only 83% on validation — a clear case of overfitting. Adding dropout, data augmentation, and early stopping brought validation accuracy up to 88% and closed the gap between the two.</p>
+      <div class="tags"><span>Python</span><span>TensorFlow</span><span>Keras</span><span>CNN</span></div>
+      <a class="link" href="https://github.com/suckingmosquito">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Multi-platform data sync &amp; returns tracking</h3>
+      <p class="meta">Work project — data automation</p>
+      <p>Built and maintain a set of Python scripts that pull and reconcile order and return ("retur") data across several e-commerce platforms, replacing what used to be manual, spreadsheet-by-spreadsheet checking. <em>(Ganti paragraf ini dengan detail sebenarnya dari kerjaan lo, bre — ini masih draft.)</em></p>
+      <div class="tags"><span>Python</span><span>Data Pipelines</span><span>Automation</span></div>
+    </div>
+
+  </section>
+
+  <section class="contact">
+    <h2>Get in touch</h2>
+    <p>Open to conversations about data analyst or junior AI engineering roles, and happy to talk through how any of the projects above actually work.</p>
+    <div class="contact-links">
+      <a href="mailto:imanuelsiwalette@gmail.com"><span>Email</span><span class="arrow-hint">imanuelsiwalette@gmail.com</span></a>
+      <a href="https://github.com/suckingmosquito" target="_blank" rel="noopener"><span>GitHub</span><span class="arrow-hint">github.com/suckingmosquito</span></a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 George Royal Imanuel Siwalette
+  </footer>
+
+</div>
+</body>
+</html>
