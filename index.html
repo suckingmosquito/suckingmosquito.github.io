@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>George Royal Imanuel Siwalette — Data Analyst &amp; AI Engineer</title>
+<meta name="description" content="Data analyst by trade, AI engineer in progress. P2P lending and e-commerce data, SQL, Python, and computer vision projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,9 +17,6 @@
     --accent: #145C4B;
     --accent-warm: #C97A2B;
     --paper-raise: #FFFFFF;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -40,8 +38,8 @@
     --accent-warm: #E3A25C;
     --paper-raise: #191D1B;
   }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   body {
     margin: 0;
     background: var(--paper);
@@ -50,25 +48,17 @@
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
   a:hover { border-bottom-color: currentColor; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  a:focus-visible, button:focus-visible, svg:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .wrap {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 0 24px; }
 
-  header.hero {
-    padding: 96px 0 64px;
-  }
-  .kicker {
-    color: var(--ink-soft);
-    font-size: 15px;
-    margin: 0 0 18px;
-  }
+  header.hero { padding: 96px 0 56px; }
+  .kicker { color: var(--ink-soft); font-size: 18px; margin: 0 0 18px; }
   h1 {
     font-family: 'Fraunces', serif;
     font-optical-sizing: auto;
@@ -78,53 +68,23 @@
     margin: 0 0 20px;
     letter-spacing: -0.01em;
   }
-  .tagline {
-    font-size: 19px;
-    color: var(--ink-soft);
-    max-width: 30em;
-    margin: 0 0 40px;
-  }
+  .tagline { font-size: 19px; color: var(--ink-soft); max-width: 30em; margin: 0 0 28px; }
 
-  .spark {
-    margin: 8px 0 4px;
-  }
-  .spark svg { display: block; width: 100%; height: auto; overflow: visible; }
-  .spark-path {
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 420;
-    stroke-dashoffset: 420;
-    animation: draw 1.4s ease-out 0.2s forwards;
-  }
-  .spark-dot {
-    fill: var(--accent-warm);
-    opacity: 0;
-    animation: appear 0.4s ease-out 1.5s forwards;
-  }
-  .spark-label {
-    font-size: 13px;
-    fill: var(--ink-soft);
-    font-family: 'IBM Plex Sans', sans-serif;
-  }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
-  @keyframes appear { to { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) {
-    .spark-path { animation: none; stroke-dashoffset: 0; }
-    .spark-dot { animation: none; opacity: 1; }
-  }
-  .spark-caption {
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin: 10px 0 0;
-  }
-
-  section {
-    padding: 56px 0;
+  .facts { list-style: none; margin: 0; padding: 0; }
+  .facts li {
+    padding: 12px 0;
     border-top: 1px solid var(--line);
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
   }
+  .facts li:last-child { border-bottom: 1px solid var(--line); }
+  .facts b { color: var(--ink); font-weight: 600; }
+  @media (max-width: 560px) { .facts li { grid-template-columns: 1fr; gap: 2px; } }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
   section h2 {
     font-family: 'Fraunces', serif;
     font-weight: 500;
@@ -133,62 +93,145 @@
     letter-spacing: -0.005em;
   }
 
-  .about p { color: var(--ink-soft); max-width: 34em; }
+  .about p { color: var(--ink-soft); max-width: 34em; margin: 0; }
   .about p + p { margin-top: 16px; }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-  .skills-grid h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 14px;
-  }
-  .skills-grid ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    color: var(--ink-soft);
-  }
-  .skills-grid li {
-    padding: 9px 0;
-    border-top: 1px solid var(--line);
-    font-size: 15.5px;
-  }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .skills-grid h3 { font-size: 16px; font-weight: 600; margin: 0 0 14px; }
+  .skills-grid ul { list-style: none; margin: 0; padding: 0; color: var(--ink-soft); }
+  .skills-grid li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 15.5px; }
   .skills-grid li:first-child { border-top: none; }
-  @media (max-width: 560px) {
-    .skills-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
+  @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; gap: 32px; } }
 
-  .project {
-    padding: 32px 0;
-    border-top: 1px solid var(--line);
+  /* ---------- Interactive training chart ---------- */
+  .lab-intro { color: var(--ink-soft); max-width: 36em; margin: 0 0 24px; }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 0 0 24px;
   }
-  .project:first-child { border-top: none; padding-top: 0; }
-  .project h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 20px;
-    margin: 0 0 8px;
+  .stat {
+    background: var(--paper-raise);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px 14px;
   }
-  .project .meta {
+  .stat .v { font-family: 'Fraunces', serif; font-size: 24px; line-height: 1.2; }
+  .stat .l { font-size: 12.5px; color: var(--ink-soft); }
+  @media (max-width: 560px) { .stats { grid-template-columns: 1fr 1fr; } }
+
+  .chart-card {
+    background: var(--paper-raise);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px 16px 12px;
+  }
+  .chart-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .seg button {
+    font: inherit;
+    font-size: 13.5px;
+    padding: 6px 12px;
+    background: transparent;
     color: var(--ink-soft);
-    font-size: 14.5px;
-    margin: 0 0 14px;
+    border: none;
+    cursor: pointer;
   }
-  .project p {
-    color: var(--ink-soft);
-    margin: 0 0 14px;
-    max-width: 36em;
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-pressed="true"] { background: var(--accent); color: var(--paper-raise); }
+  .chart-wrap { position: relative; }
+  #chart { display: block; width: 100%; height: auto; touch-action: pan-y; cursor: crosshair; }
+  .grid-line { stroke: var(--line); stroke-width: 1; }
+  .axis-text { font-size: 11.5px; fill: var(--ink-soft); font-family: 'IBM Plex Sans', sans-serif; }
+  .line { fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .line.train { stroke: var(--accent); }
+  .line.val { stroke: var(--accent-warm); }
+  .line.base { stroke-dasharray: 5 5; opacity: .75; }
+  .cursor-line { stroke: var(--ink-soft); stroke-width: 1; stroke-dasharray: 3 3; }
+  .tip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 8px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .12s;
+    z-index: 2;
   }
-  .project .tags {
+  .tip.on { opacity: 1; }
+  .tip .row { display: flex; align-items: center; gap: 7px; }
+  .tip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13.5px; color: var(--ink-soft); margin: 10px 0 0; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+  .chart-note { font-size: 14px; color: var(--ink-soft); margin: 14px 0 0; max-width: 40em; }
+
+  /* ---------- Live demo ---------- */
+  .demo-card {
+    background: var(--paper-raise);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px;
+  }
+  .drop {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 0 14px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    padding: 32px 16px;
+    border: 2px dashed var(--line);
+    border-radius: 6px;
+    color: var(--ink-soft);
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color .15s, background-color .15s;
   }
+  .drop strong { color: var(--ink); font-weight: 600; font-size: 16.5px; }
+  .drop:hover, .drop.over { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+  .drop.disabled { opacity: .5; cursor: not-allowed; pointer-events: none; }
+  .demo-result {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    align-items: center;
+    margin: 16px 0 0;
+  }
+  .demo-result[hidden] { display: none; }
+  .demo-result img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .verdict { font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.2; margin: 0 0 14px; }
+  .bar-row { display: grid; grid-template-columns: 44px 1fr 54px; gap: 10px; align-items: center; font-size: 14px; margin: 0 0 8px; color: var(--ink-soft); }
+  .bar-row .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .bar-track { height: 10px; border-radius: 5px; background: var(--line); overflow: hidden; }
+  .bar-fill { height: 100%; width: 0; border-radius: 5px; background: var(--ink-soft); transition: width .5s ease-out; }
+  .bar-fill.top { background: var(--accent); }
+  .demo-note { font-size: 13.5px; color: var(--accent-warm); margin: 10px 0 0; min-height: 1.2em; }
+  .demo-status { font-size: 13.5px; color: var(--ink-soft); margin: 12px 0 0; }
+  @media (max-width: 560px) {
+    .demo-result { grid-template-columns: 1fr; }
+    .demo-result img { width: 100%; height: 220px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bar-fill { transition: none; } }
+
+  .project { padding: 32px 0; border-top: 1px solid var(--line); }
+  .project:first-of-type { border-top: none; padding-top: 0; }
+  .project h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; margin: 0 0 8px; }
+  .project .meta { color: var(--ink-soft); font-size: 14.5px; margin: 0 0 14px; }
+  .project p { color: var(--ink-soft); margin: 0 0 14px; max-width: 36em; }
+  .project .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
   .project .tags span {
     font-size: 13px;
     color: var(--ink-soft);
@@ -198,37 +241,24 @@
   }
   .project .link { font-size: 15px; font-weight: 500; }
 
-  .contact p {
-    color: var(--ink-soft);
-    max-width: 30em;
-    margin: 0 0 24px;
-  }
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+  .contact p { color: var(--ink-soft); max-width: 30em; margin: 0 0 24px; }
+  .contact-links { display: flex; flex-direction: column; gap: 4px; }
   .contact-links a {
     font-size: 16.5px;
     padding: 10px 0;
     border-top: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
     color: var(--ink);
   }
   .contact-links a:first-child { border-top: none; }
-  .contact-links a span.arrow-hint { color: var(--ink-soft); font-weight: 400; }
-  .contact-links a:hover { border-bottom: none; }
+  .contact-links a .arrow-hint { color: var(--ink-soft); }
+  .contact-links a:hover { border-bottom-color: transparent; }
   .contact-links a:hover span:first-of-type { color: var(--accent); }
 
-  footer {
-    padding: 32px 0 56px;
-    color: var(--ink-soft);
-    font-size: 13.5px;
-  }
-  .kicker {
-  font-size: 20.5px;
-}
+  footer { padding: 32px 0 56px; color: var(--ink-soft); font-size: 13.5px; }
 </style>
 </head>
 <body>
@@ -237,23 +267,18 @@
   <header class="hero">
     <p class="kicker">George Royal Imanuel Siwalette</p>
     <h1>Data analyst by trade, AI engineer in progress.</h1>
-    <p class="tagline">Hi! I’m a George dedicated to building reliable data solutions that empower smarter business decisions.Domain Expertise: P2P Lending & E-commerce.</p>
-    <p class="tagline"></p>Core Skills: SQL, Python, ETL Development, API Integration, and Business Analytics.Key Achievement: Designed an automated data pipeline that boosted reporting efficiency by 70% by eliminating manual processes.Current Focus: Scaling systems using modern Data Engineering & Cloud Technologies.</p>
-    <div class="spark">
-      <svg viewBox="0 0 420 130" preserveAspectRatio="none" role="img" aria-label="Grafik validation accuracy naik dari 83 persen ke 88 persen setelah perbaikan model">
-        <path class="spark-path" d="M0,95 C40,90 60,78 90,74 C120,70 130,80 170,76 C200,72 220,50 250,44 C280,38 300,52 330,34 C360,16 380,20 410,10" />
-        <circle class="spark-dot" cx="410" cy="10" r="4.5" />
-        <text class="spark-label" x="30" y="65">first model — 83% val</text>
-        <text class="spark-label" x="330" y="46" fill="var(--accent-warm)">after fixing overfit — 88%</text>
-      </svg>
-    </div>
-    <p class="spark-caption">Validation accuracy on a cat/dog image classifier, before and after fixing overfitting.</p>
+    <p class="tagline">Hi! I’m George. I build reliable data solutions that help businesses make smarter decisions. Domain expertise: P2P lending &amp; e-commerce.</p>
+    <ul class="facts">
+      <li><b>Core skills</b><span>SQL, Python, ETL development, API integration, business analytics</span></li>
+      <li><b>Key achievement</b><span>Designed an automated data pipeline that boosted reporting efficiency by 70% by eliminating manual processes</span></li>
+      <li><b>Current focus</b><span>Scaling systems with modern data engineering &amp; cloud technologies</span></li>
+    </ul>
   </header>
 
   <section class="about">
     <h2>About</h2>
     <p>By day, I maximize data integrity for e-commerce; by night, I engineer the future of AI. My work centers on streamlining multi-platform data reconciliation and eliminating cross-channel anomalies to ensure bulletproof financial accuracy across data infrastructures.</p>
-    <p>Concurrently, I am scaling my expertise into advanced analytics by developing production-ready Computer Vision models. Driven by a proactive problem-solving mindset, I thrive in handling the messy reality of production data—from resolving corrupt pipelines to mitigating model overfitting—because I believe that is where true engineering value is built.    </p>
+    <p>Concurrently, I am scaling my expertise into advanced analytics by developing production-ready computer vision models. Driven by a proactive problem-solving mindset, I thrive in handling the messy reality of production data, from resolving corrupt pipelines to mitigating model overfitting, because I believe that is where true engineering value is built.</p>
   </section>
 
   <section class="skills">
@@ -263,7 +288,6 @@
         <h3>Data analysis</h3>
         <ul>
           <li>SQL &amp; spreadsheet reporting</li>
-          <li>Metabase,tableu,Power BI</li>
           <li>Python (Pandas) for cleaning &amp; automation</li>
           <li>Multi-platform data synchronization</li>
           <li>Returns &amp; transaction tracking</li>
@@ -281,21 +305,74 @@
     </div>
   </section>
 
+  <section class="lab" id="training-lab">
+    <h2>Training lab: cat vs. dog classifier</h2>
+    <p class="lab-intro">Real numbers from my own training run, not a stock illustration. Hover (or tap and drag) across the chart to inspect any epoch.</p>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="chart-card">
+      <div class="chart-controls">
+        <div class="seg" role="group" aria-label="Metric">
+          <button type="button" data-metric="acc" aria-pressed="true">Accuracy</button>
+          <button type="button" data-metric="loss" aria-pressed="false">Loss</button>
+        </div>
+        <div class="seg" id="versionSeg" role="group" aria-label="Model version" hidden>
+          <button type="button" data-ver="fixed" aria-pressed="true">After fix</button>
+          <button type="button" data-ver="both" aria-pressed="false">Before vs. after</button>
+        </div>
+      </div>
+      <div class="chart-wrap" id="chartWrap">
+        <svg id="chart" viewBox="0 0 640 300" role="img" tabindex="0"
+             aria-label="Interactive chart of training and validation accuracy per epoch. Use left and right arrow keys to move between epochs."></svg>
+        <div class="tip" id="tip"></div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <p class="chart-note">Training and validation curves rise together and end within about half a point of each other, which is the signature of a model that generalizes instead of memorizing. My first version hit 99% on training data but only 83% on validation; dropout, data augmentation, and early stopping closed that gap.</p>
+    </div>
+  </section>
+
+  <section class="demo" id="live-demo">
+    <h2>Try it: upload a cat or dog photo</h2>
+    <p class="lab-intro">The same CNN from the chart above, running live in your browser. Your photo never leaves your device.</p>
+    <div class="demo-card">
+      <label class="drop" id="drop" for="file" tabindex="0">
+        <input type="file" id="file" accept="image/*" hidden>
+        <strong>Drop a photo here</strong>
+        <span>or tap to choose one (JPG, PNG, WebP)</span>
+      </label>
+      <div class="demo-result" id="result" hidden>
+        <img id="preview" alt="The photo you uploaded">
+        <div>
+          <p class="verdict" id="verdict" aria-live="polite"></p>
+          <div id="bars"></div>
+          <p class="demo-note" id="warn" aria-live="polite"></p>
+        </div>
+      </div>
+      <p class="demo-status" id="status" aria-live="polite">Loading model…</p>
+    </div>
+    <p class="chart-note">This model only knows two things: cats and dogs. It reaches about 88% accuracy on photos it never saw during training, so it will sometimes be wrong, and a picture of anything else (a car, a person) still gets forced into one of the two answers.</p>
+  </section>
+
   <section class="projects">
     <h2>Projects</h2>
 
     <div class="project">
       <h3>Cat vs. dog image classifier</h3>
       <p class="meta">Personal project — computer vision</p>
-      <p>Trained a CNN on the classic Kaggle cats-and-dogs dataset. The dataset itself turned out to be part of the lesson: a handful of corrupt JPEGs crashed training partway through, which meant writing a cleaning step before the model would even run. The first working version scored 99% on training data but only 83% on validation — a clear case of overfitting. Adding dropout, data augmentation, and early stopping brought validation accuracy up to 88% and closed the gap between the two.</p>
+      <p>Trained a CNN on the classic Kaggle cats-and-dogs dataset. The dataset itself turned out to be part of the lesson: a handful of corrupt JPEGs crashed training partway through, which meant writing a cleaning step before the model would even run. The first working version scored 99% on training data but only 83% on validation, a clear case of overfitting. Adding dropout, data augmentation, and early stopping brought validation accuracy up to 88% and closed the gap between the two.</p>
       <div class="tags"><span>Python</span><span>TensorFlow</span><span>Keras</span><span>CNN</span></div>
-      <a class="link" href="https://github.com/suckingmosquito">View on GitHub</a>
-       <h3>Emotunes</h3>
-      <p class="meta">Team project — sentiment analyst</p>
-      <p>Developed a sentiment analysis model that classifies song lyrics into positive, negative, or neutral categories. The model was trained on a dataset of annotated lyrics and achieved an accuracy of 85% on the test set. The project also included a web interface where users can input lyrics and receive sentiment predictions in real-time.</p>
-    <div class="tags"><span>Python</span><span>TensorFlow</span><span>SQL</span><span>CNN</span></div>
-      <a class="link" href="https://www.linkedin.com/in/george-royal-imanuel-siwalette-b02431247/">View on LinkedIn</a>
-</section>
+      <a class="link" href="https://github.com/suckingmosquito" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Emotunes</h3>
+      <p class="meta">Team project — sentiment analysis</p>
+      <p>Developed a sentiment analysis model that classifies song lyrics into positive, negative, or neutral categories. The model was trained on a dataset of annotated lyrics and achieved 85% accuracy on the test set. The project also included a web interface where users can input lyrics and receive sentiment predictions in real time.</p>
+      <div class="tags"><span>Python</span><span>TensorFlow</span><span>SQL</span><span>CNN</span></div>
+      <a class="link" href="https://www.linkedin.com/in/george-royal-imanuel-siwalette-b02431247/" target="_blank" rel="noopener">View on LinkedIn</a>
+    </div>
+  </section>
 
   <section class="contact">
     <h2>Get in touch</h2>
@@ -306,10 +383,404 @@
     </div>
   </section>
 
-  <footer>
-    &copy; 2026 George Royal Imanuel Siwalette
-  </footer>
+  <footer>&copy; 2026 George Royal Imanuel Siwalette</footer>
 
 </div>
+
+<script>
+/* ===== Data: real output of history.history from the v2 training run ===== */
+const FIXED = {
+  acc: [0.6049051880836487,0.6969406008720398,0.7247028946876526,0.7437673807144165,0.7642983794212341,0.7781036496162415,0.7837167978286743,0.7916055917739868,0.8045006394386292,0.8100631833076477,0.8142604231834412,0.8245764970779419,0.8244248032569885,0.8342857360839844,0.8327180743217468,0.8393931984901428,0.8443995118141174,0.8464222550392151,0.84869784116745,0.8542604446411133,0.8552212119102478,0.8539064526557922,0.8640202283859253,0.8645259141921997,0.8646776080131531,0.8677117824554443,0.8675600290298462,0.8758533596992493,0.8763084411621094,0.8724693059921265],
+  loss: [0.6582663655281067,0.581318736076355,0.5444182753562927,0.51608806848526,0.490180104970932,0.46997788548469543,0.45505985617637634,0.4439832866191864,0.4283822476863861,0.413850337266922,0.4017474055290222,0.3901717960834503,0.385486364364624,0.37588706612586975,0.36992114782333374,0.3589533865451813,0.3538525104522705,0.34392476081848145,0.34109339118003845,0.33183553814888,0.32599666714668274,0.3277417719364166,0.3161724805831909,0.3118076026439667,0.3108002245426178,0.303270161151886,0.30010873079299927,0.2935328483581543,0.2854098975658417,0.2890665531158447],
+  vacc: [0.7075415253639221,0.7297459244728088,0.7693538665771484,0.7357471585273743,0.7863572835922241,0.803560733795166,0.7699539661407471,0.8159632086753845,0.8295659422874451,0.8257651329040527,0.8307661414146423,0.8319664001464844,0.836967408657074,0.841168224811554,0.8461692333221436,0.8305661082267761,0.8475695252418518,0.8483696579933167,0.8557711839675903,0.8603720664978027,0.8407681584358215,0.8543708920478821,0.8639727830886841,0.8653730750083923,0.8457691669464111,0.872574508190155,0.8743748664855957,0.871574342250824,0.8763752579689026,0.8775755167007446],
+  vloss: [0.5720985531806946,0.5353696346282959,0.49248769879341125,0.515679657459259,0.45038172602653503,0.4320301115512848,0.4671541154384613,0.40144288539886475,0.3829613924026489,0.38234618306159973,0.370273232460022,0.3658902049064636,0.35627689957618713,0.356911301612854,0.3467518985271454,0.3831923007965088,0.3457181751728058,0.3425826132297516,0.33551642298698425,0.3170119822025299,0.3587875962257385,0.32524725794792175,0.307614803314209,0.3064448833465576,0.3439473509788513,0.2970159351825714,0.29058733582496643,0.30317580699920654,0.2860782742500305,0.2872334420681]
+};
+
+/* Baseline (overfit) run: fill in after re-training without dropout/augmentation.
+   Same shape as FIXED: {acc:[], loss:[], vacc:[], vloss:[]}. While null, the
+   "Before vs. after" toggle stays hidden. */
+const BASELINE = null;
+
+/* ===== Chart ===== */
+const svg = document.getElementById('chart');
+const tip = document.getElementById('tip');
+const wrap = document.getElementById('chartWrap');
+const legend = document.getElementById('legend');
+const NS = 'http://www.w3.org/2000/svg';
+const W = 640, H = 300, M = { l: 44, r: 14, t: 14, b: 34 };
+const state = { metric: 'acc', ver: 'fixed', idx: null };
+
+function el(name, attrs, text) {
+  const n = document.createElementNS(NS, name);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (text != null) n.textContent = text;
+  return n;
+}
+const pct = v => (v * 100).toFixed(1) + '%';
+const fmt = v => state.metric === 'acc' ? pct(v) : v.toFixed(3);
+
+function series() {
+  const m = state.metric;
+  const out = [
+    { key: 'train', label: 'Training', cls: 'train', data: FIXED[m === 'acc' ? 'acc' : 'loss'], color: 'var(--accent)' },
+    { key: 'val', label: 'Validation', cls: 'val', data: FIXED[m === 'acc' ? 'vacc' : 'vloss'], color: 'var(--accent-warm)' }
+  ];
+  if (BASELINE && state.ver === 'both') {
+    out.push({ key: 'btrain', label: 'Training (before)', cls: 'train base', data: BASELINE[m === 'acc' ? 'acc' : 'loss'], color: 'var(--accent)' });
+    out.push({ key: 'bval', label: 'Validation (before)', cls: 'val base', data: BASELINE[m === 'acc' ? 'vacc' : 'vloss'], color: 'var(--accent-warm)' });
+  }
+  return out;
+}
+
+function draw() {
+  const S = series();
+  const n = Math.max(...S.map(s => s.data.length));
+  const all = S.flatMap(s => s.data);
+  let lo = Math.min(...all), hi = Math.max(...all);
+  const pad = (hi - lo) * 0.08 || 0.02;
+  lo -= pad; hi += pad;
+  if (state.metric === 'acc') hi = Math.min(hi, 1);
+  const x = i => M.l + (i / (n - 1)) * (W - M.l - M.r);
+  const y = v => M.t + (1 - (v - lo) / (hi - lo)) * (H - M.t - M.b);
+
+  svg.innerHTML = '';
+  for (let g = 0; g <= 4; g++) {
+    const v = lo + ((hi - lo) * g) / 4;
+    svg.appendChild(el('line', { class: 'grid-line', x1: M.l, x2: W - M.r, y1: y(v), y2: y(v) }));
+    svg.appendChild(el('text', { class: 'axis-text', x: M.l - 8, y: y(v) + 4, 'text-anchor': 'end' },
+      state.metric === 'acc' ? Math.round(v * 100) + '%' : v.toFixed(2)));
+  }
+  const step = n > 20 ? 5 : 2;
+  for (let i = 0; i < n; i++) {
+    if (i % step === 0 || i === n - 1) {
+      svg.appendChild(el('text', { class: 'axis-text', x: x(i), y: H - 12, 'text-anchor': 'middle' }, String(i + 1)));
+    }
+  }
+  svg.appendChild(el('text', { class: 'axis-text', x: (M.l + W - M.r) / 2, y: H - 0, 'text-anchor': 'middle' }, 'Epoch'));
+
+  S.forEach(s => {
+    const d = s.data.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1)).join('');
+    const p = el('path', { class: 'line ' + s.cls, d });
+    svg.appendChild(p);
+  });
+
+  const cur = el('line', { class: 'cursor-line', y1: M.t, y2: H - M.b, x1: 0, x2: 0, visibility: 'hidden', id: 'cur' });
+  svg.appendChild(cur);
+  S.forEach(s => svg.appendChild(el('circle', { r: 4.5, fill: s.color, id: 'dot-' + s.key, visibility: 'hidden', stroke: 'var(--paper-raise)', 'stroke-width': 1.5 })));
+
+  legend.innerHTML = S.map(s =>
+    `<span><i style="background:${s.color};${s.cls.includes('base') ? 'opacity:.6' : ''}"></i>${s.label}</span>`).join('');
+
+  svg._geom = { x, y, n, S };
+  svg.setAttribute('aria-label', 'Interactive chart of training and validation ' + (state.metric === 'acc' ? 'accuracy' : 'loss') + ' per epoch. Use left and right arrow keys to move between epochs.');
+  if (state.idx != null) showAt(Math.min(state.idx, n - 1));
+}
+
+function showAt(i) {
+  const g = svg._geom; if (!g) return;
+  state.idx = i;
+  const px = g.x(i);
+  const cur = svg.querySelector('#cur');
+  cur.setAttribute('x1', px); cur.setAttribute('x2', px); cur.setAttribute('visibility', 'visible');
+  let rows = `<div><b>Epoch ${i + 1}</b></div>`;
+  g.S.forEach(s => {
+    const v = s.data[i];
+    const dot = svg.querySelector('#dot-' + s.key);
+    if (v == null) { dot.setAttribute('visibility', 'hidden'); return; }
+    dot.setAttribute('cx', px); dot.setAttribute('cy', g.y(v)); dot.setAttribute('visibility', 'visible');
+    rows += `<div class="row"><i style="background:${s.color}"></i>${s.label}: ${fmt(v)}</div>`;
+  });
+  tip.innerHTML = rows;
+  const box = svg.getBoundingClientRect();
+  const scale = box.width / W;
+  let left = px * scale + 12;
+  tip.classList.add('on');
+  const tw = tip.offsetWidth;
+  if (left + tw > box.width) left = px * scale - tw - 12;
+  tip.style.left = Math.max(0, left) + 'px';
+  tip.style.top = '8px';
+}
+
+function idxFromEvent(e) {
+  const g = svg._geom;
+  const box = svg.getBoundingClientRect();
+  const px = ((e.clientX - box.left) / box.width) * W;
+  const t = (px - M.l) / (W - M.l - M.r);
+  return Math.max(0, Math.min(g.n - 1, Math.round(t * (g.n - 1))));
+}
+svg.addEventListener('pointermove', e => showAt(idxFromEvent(e)));
+svg.addEventListener('pointerdown', e => showAt(idxFromEvent(e)));
+svg.addEventListener('pointerleave', () => {
+  state.idx = null;
+  tip.classList.remove('on');
+  svg.querySelectorAll('circle, #cur').forEach(n => n.setAttribute('visibility', 'hidden'));
+});
+svg.addEventListener('keydown', e => {
+  const n = svg._geom.n;
+  if (e.key === 'ArrowRight') { showAt(Math.min(n - 1, (state.idx ?? -1) + 1)); e.preventDefault(); }
+  if (e.key === 'ArrowLeft') { showAt(Math.max(0, (state.idx ?? n) - 1)); e.preventDefault(); }
+});
+
+function bindToggle(selector, attr, key) {
+  document.querySelectorAll(selector + ' button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll(selector + ' button').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+      state[key] = b.dataset[attr];
+      draw();
+    });
+  });
+}
+bindToggle('.chart-controls .seg:first-child', 'metric', 'metric');
+if (BASELINE) {
+  document.getElementById('versionSeg').hidden = false;
+  bindToggle('#versionSeg', 'ver', 'ver');
+}
+
+/* ===== Stat cards computed from the data ===== */
+(function stats() {
+  const last = FIXED.acc.length - 1;
+  const bestVal = Math.max(...FIXED.vacc);
+  const gap = Math.abs(FIXED.vacc[last] - FIXED.acc[last]) * 100;
+  const items = [
+    [pct(FIXED.vacc[last]), 'Final validation accuracy'],
+    [pct(FIXED.acc[last]), 'Final training accuracy'],
+    [gap.toFixed(1) + ' pt', 'Train vs. val gap'],
+    [String(FIXED.acc.length), 'Epochs trained']
+  ];
+  document.getElementById('stats').innerHTML = items.map(([v, l]) =>
+    `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+})();
+
+draw();
+window.addEventListener('resize', () => { if (state.idx != null) showAt(state.idx); });
+</script>
+<script>
+/* ENGINE START */
+const CatDogEngine = (() => {
+  // Pure-JS forward pass for a Keras Sequential CNN (channels_last, 'valid' padding).
+  function conv(inp, h, w, cin, L, wts) {
+    const kh = L.kh, kw = L.kw, cout = L.cout;
+    const oh = h - kh + 1, ow = w - kw + 1;
+    const k = wts.subarray(L.kOffset, L.kOffset + kh * kw * cin * cout);
+    const b = wts.subarray(L.bOffset, L.bOffset + cout);
+    const out = new Float32Array(oh * ow * cout);
+    const relu = L.act === 'relu';
+    for (let oy = 0; oy < oh; oy++) {
+      for (let ox = 0; ox < ow; ox++) {
+        const o = (oy * ow + ox) * cout;
+        for (let co = 0; co < cout; co++) out[o + co] = b[co];
+        for (let ky = 0; ky < kh; ky++) {
+          for (let kx = 0; kx < kw; kx++) {
+            const ib = ((oy + ky) * w + (ox + kx)) * cin;
+            const kb = (ky * kw + kx) * cin * cout;
+            for (let ci = 0; ci < cin; ci++) {
+              const v = inp[ib + ci];
+              if (v === 0) continue;
+              const kr = kb + ci * cout;
+              for (let co = 0; co < cout; co++) out[o + co] += v * k[kr + co];
+            }
+          }
+        }
+        if (relu) for (let co = 0; co < cout; co++) if (out[o + co] < 0) out[o + co] = 0;
+      }
+    }
+    return { data: out, h: oh, w: ow, c: cout };
+  }
+
+  function pool(inp, h, w, c, size) {
+    const oh = Math.floor(h / size), ow = Math.floor(w / size);
+    const out = new Float32Array(oh * ow * c);
+    for (let oy = 0; oy < oh; oy++) {
+      for (let ox = 0; ox < ow; ox++) {
+        for (let ch = 0; ch < c; ch++) {
+          let m = -Infinity;
+          for (let py = 0; py < size; py++) {
+            for (let px = 0; px < size; px++) {
+              const v = inp[((oy * size + py) * w + (ox * size + px)) * c + ch];
+              if (v > m) m = v;
+            }
+          }
+          out[(oy * ow + ox) * c + ch] = m;
+        }
+      }
+    }
+    return { data: out, h: oh, w: ow, c };
+  }
+
+  function dense(inp, L, wts) {
+    const nIn = L.in, nOut = L.out;
+    const k = wts.subarray(L.kOffset, L.kOffset + nIn * nOut);
+    const b = wts.subarray(L.bOffset, L.bOffset + nOut);
+    const out = new Float32Array(nOut);
+    for (let j = 0; j < nOut; j++) out[j] = b[j];
+    for (let i = 0; i < nIn; i++) {
+      const v = inp[i];
+      if (v === 0) continue;
+      const r = i * nOut;
+      for (let j = 0; j < nOut; j++) out[j] += v * k[r + j];
+    }
+    if (L.act === 'relu') for (let j = 0; j < nOut; j++) if (out[j] < 0) out[j] = 0;
+    if (L.act === 'sigmoid') for (let j = 0; j < nOut; j++) out[j] = 1 / (1 + Math.exp(-out[j]));
+    if (L.act === 'softmax') {
+      let mx = -Infinity;
+      for (let j = 0; j < nOut; j++) if (out[j] > mx) mx = out[j];
+      let s = 0;
+      for (let j = 0; j < nOut; j++) { out[j] = Math.exp(out[j] - mx); s += out[j]; }
+      for (let j = 0; j < nOut; j++) out[j] /= s;
+    }
+    return out;
+  }
+
+  async function load(base) {
+    const [mres, wres] = await Promise.all([fetch(base + 'manifest.json'), fetch(base + 'weights.bin')]);
+    if (!mres.ok || !wres.ok) throw new Error('model files not found');
+    const manifest = await mres.json();
+    const weights = new Float32Array(await wres.arrayBuffer());
+    return { manifest, weights };
+  }
+
+  // input: Float32Array of length H*W*3, values already scaled to 0..1
+  function predict(model, input) {
+    const [H, W, C] = model.manifest.input;
+    let cur = { data: input, h: H, w: W, c: C };
+    let flat = null;
+    for (const L of model.manifest.layers) {
+      if (L.type === 'conv') cur = conv(cur.data, cur.h, cur.w, cur.c, L, model.weights);
+      else if (L.type === 'pool') cur = pool(cur.data, cur.h, cur.w, cur.c, L.size);
+      else if (L.type === 'flatten') flat = cur.data;
+      else if (L.type === 'dense') flat = dense(flat, L, model.weights);
+    }
+    return flat;
+  }
+
+  return { load, predict };
+})();
+/* ENGINE END */
+
+/* ===== Live demo wiring ===== */
+(function demo() {
+  const $ = id => document.getElementById(id);
+  const drop = $('drop'), fileInput = $('file'), result = $('result'), preview = $('preview');
+  const verdict = $('verdict'), bars = $('bars'), warn = $('warn'), status = $('status');
+  const IS_LOCAL = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
+  let model = null, busy = false, currentUrl = null;
+
+  CatDogEngine.load('model/').then(m => {
+    model = m;
+    let extra = '';
+    const exp = m.manifest.selfTest && m.manifest.selfTest.expected;
+    if (exp && IS_LOCAL) {
+      const n = m.manifest.input[0] * m.manifest.input[1] * m.manifest.input[2];
+      const x = new Float32Array(n);
+      for (let i = 0; i < n; i++) x[i] = ((i * 37) % 255) / 255;
+      const p = CatDogEngine.predict(m, x);
+      const diff = Math.max(...exp.map((e, i) => Math.abs(e - p[i])));
+      extra = diff < 1e-3 ? ' (self-test passed: matches Keras)' : ' (WARNING: self-test mismatch, diff ' + diff.toExponential(1) + ')';
+      console.log('Self-test vs Keras:', { expected: exp, js: Array.from(p), diff });
+    }
+    status.textContent = 'Model ready.' + extra + ' Choose a photo to try it.';
+  }).catch(err => {
+    console.warn('Demo model failed to load:', err);
+    drop.classList.add('disabled');
+    status.textContent = IS_LOCAL
+      ? 'Model files not found. Run export_weights.py, put the model/ folder next to index.html, and open this page through a web server (python -m http.server), not by double-clicking.'
+      : 'The live demo is unavailable right now.';
+  });
+
+  function loadImage(url) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.onload = () => res(img);
+      img.onerror = rej;
+      img.src = url;
+    });
+  }
+
+  // Match training preprocessing: stretch to size x size with bilinear sampling, pixels / 255.
+  // Phone photos are huge, so shrink to ~512px first (training photos were about that size).
+  function toInput(img, size) {
+    const k = Math.min(1, 512 / Math.max(img.naturalWidth, img.naturalHeight));
+    const sw = Math.max(1, Math.round(img.naturalWidth * k)), sh = Math.max(1, Math.round(img.naturalHeight * k));
+    const cv = document.createElement('canvas');
+    cv.width = sw; cv.height = sh;
+    const ctx = cv.getContext('2d', { willReadFrequently: true });
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, sw, sh);
+    ctx.drawImage(img, 0, 0, sw, sh);
+    const px = ctx.getImageData(0, 0, sw, sh).data;
+    const out = new Float32Array(size * size * 3);
+    const fx = sw / size, fy = sh / size;
+    for (let oy = 0; oy < size; oy++) {
+      const sy = Math.max(0, (oy + 0.5) * fy - 0.5);
+      const y0 = Math.min(sh - 1, Math.floor(sy)), y1 = Math.min(sh - 1, y0 + 1), wy = sy - y0;
+      for (let ox = 0; ox < size; ox++) {
+        const sx = Math.max(0, (ox + 0.5) * fx - 0.5);
+        const x0 = Math.min(sw - 1, Math.floor(sx)), x1 = Math.min(sw - 1, x0 + 1), wx = sx - x0;
+        for (let c = 0; c < 3; c++) {
+          const a = px[(y0 * sw + x0) * 4 + c], b = px[(y0 * sw + x1) * 4 + c];
+          const d = px[(y1 * sw + x0) * 4 + c], e = px[(y1 * sw + x1) * 4 + c];
+          const top = a + (b - a) * wx, bot = d + (e - d) * wx;
+          out[(oy * size + ox) * 3 + c] = (top + (bot - top) * wy) / 255;
+        }
+      }
+    }
+    return out;
+  }
+
+  function render(probs) {
+    const classes = model.manifest.classes;
+    let top = 0;
+    probs.forEach((p, i) => { if (p > probs[top]) top = i; });
+    verdict.textContent = 'Looks like a ' + classes[top].toLowerCase() + ' (' + (probs[top] * 100).toFixed(1) + '%)';
+    bars.textContent = '';
+    classes.forEach((name, i) => {
+      const row = document.createElement('div'); row.className = 'bar-row';
+      const label = document.createElement('span'); label.textContent = name;
+      const track = document.createElement('div'); track.className = 'bar-track';
+      const fill = document.createElement('div'); fill.className = 'bar-fill' + (i === top ? ' top' : '');
+      track.appendChild(fill);
+      const pct = document.createElement('span'); pct.className = 'pct'; pct.textContent = (probs[i] * 100).toFixed(1) + '%';
+      row.append(label, track, pct);
+      bars.appendChild(row);
+      requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = (probs[i] * 100) + '%'; }));
+    });
+    warn.textContent = probs[top] < 0.75
+      ? 'Not very sure about this one. Try a clearer photo with a single cat or dog.'
+      : '';
+  }
+
+  async function handleFile(f) {
+    if (!f || !model || busy) return;
+    if (!f.type.startsWith('image/')) { status.textContent = 'Please choose an image file.'; return; }
+    busy = true;
+    status.textContent = 'Analyzing…';
+    if (currentUrl) URL.revokeObjectURL(currentUrl);
+    currentUrl = URL.createObjectURL(f);
+    try {
+      const img = await loadImage(currentUrl);
+      preview.src = currentUrl;
+      result.hidden = false;
+      await new Promise(r => setTimeout(r, 30)); // let the preview paint before the heavy math
+      const probs = CatDogEngine.predict(model, toInput(img, model.manifest.input[0]));
+      render(probs);
+      status.textContent = 'Done. Try another photo.';
+    } catch (e) {
+      console.warn(e);
+      status.textContent = "Couldn't read that image. Try a JPG or PNG.";
+    } finally {
+      busy = false;
+      fileInput.value = '';
+    }
+  }
+
+  fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+  drop.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+  });
+  ['dragenter', 'dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave', 'drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('over'); }));
+  drop.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
+})();
+</script>
 </body>
 </html>
